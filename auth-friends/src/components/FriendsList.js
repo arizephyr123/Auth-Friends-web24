@@ -1,20 +1,42 @@
-import React, { setState } from "react";
+import React from "react";
 
 import AddFriendForm from "../components/AddFriendForm";
- import '../../server.js' as data
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
-const FriendsList = () => {
-  const [list, setList] = setState({});
+class FriendsList extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      friendsList: {}
+    };
+  };
 
-
-
-
-  return (
-      <>
-      <AddFriendForm/>
-      </>
-  )
+getFriends(){
+axiosWithAuth()
+.get('/api/friends')
+.then(res => {
+    console.log(res.data);
+    //this.setState({res.data})
+})
+.catch(err => {
+    console.log(err);
+})
 };
+
+logOut(){
+    sessionStorage.clear();
+    this.props.history.push('/');
+}
+
+  render() {
+    return (
+      <>
+        <AddFriendForm />
+        <button onClick={this.logOut}>Log Out</button>
+      </>
+    );
+  }
+}
 
 export default FriendsList;
 

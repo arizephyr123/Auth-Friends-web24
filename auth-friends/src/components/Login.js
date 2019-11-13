@@ -18,7 +18,7 @@ const Login = props => {
       .then(res => {
           //console.log(res.data);
         sessionStorage.setItem("token", res.data.payload);
-        //   props.history.push("/");
+        props.history.push("/protected");
       })
       .catch(err => {
         return (<h3>{err.message}</h3>);
