@@ -1,1 +1,19 @@
-//http://localhost:5000
+
+
+
+
+
+
+// import axios from "axios";
+
+//  export const axiosWithAuth = () => {
+//   const token = localStorage.getItem("token");
+
+//   //written as fn instead of singleton instance so calling axiosWithAuth will return new instance each time, can be re-used 
+//   return axios.create({
+//        baseURL: 'http://localhost:5000',
+//     headers: {
+//       'Authorization': token
+//     }
+//   });
+// };

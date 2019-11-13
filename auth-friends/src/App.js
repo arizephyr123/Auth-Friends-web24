@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import FriendsList from './components/FriendsList';
 import './App.css';
 import Login from './components/Login';
+import AddFriendForm from './components/AddFriendForm';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <h2> 🥰 All my friends 🥰</h2>
       </header>
       <Login/>
+      <AddFriendForm/>
     </div>
   );
 }
