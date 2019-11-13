@@ -12,15 +12,16 @@ const Login = props => {
       username: username,
       password: pass
     };
-    console.log("Login handleSubmit", username, pass, creds);
+    //console.log("Login handleSubmit", username, pass, creds);
     axiosWithAuth()
-      .post("http://localhost:5000/api/login", creds)
+      .post("api/login", creds)
       .then(res => {
-        localStorage.setItem("token", res.data.token);
+          //console.log(res.data);
+        sessionStorage.setItem("token", res.data.payload);
         //   props.history.push("/");
       })
       .catch(err => {
-        return <div>{err}</div>;
+        return (<h3>{err.message}</h3>);
       });
   };
 

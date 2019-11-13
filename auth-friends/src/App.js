@@ -1,9 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import FriendsList from './components/FriendsList';
-import './App.css';
-import Login from './components/Login';
-import AddFriendForm from './components/AddFriendForm';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import FriendsList from "./components/FriendsList";
+import "./App.css";
+import Login from "./components/Login";
+
+//Route component passes in 3 default props.match, history and location
 
 function App() {
   return (
@@ -11,8 +12,14 @@ function App() {
       <header className="App-header">
         <h2> 🥰 All my friends 🥰</h2>
       </header>
-      <Login/>
-      <AddFriendForm/>
+
+      <Router>
+        <Switch>
+          <Route exact path="/protected" component={FriendsList} />
+          <Route path="/login" component={Login} />
+          <Route component={Login} />
+        </Switch>
+      </Router>
     </div>
   );
 }
