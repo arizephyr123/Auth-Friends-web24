@@ -33,14 +33,14 @@ const AddFriendForm = () => {
         <input
           type="text"
           name="name"
-          onChange={e => setNewName(e.target.value)}
+          onChange={e => handleNewName(e.target.value)}
           value={newName}
         ></input>
         <label>Age:</label>
         <input
           type="text"
           name="age"
-          onChange={e => setNewAge(e.target.value)}
+          onChange={e => handleNewAge(e.target.value)}
           value={newAge}
         ></input>
         <label>Email:</label>
