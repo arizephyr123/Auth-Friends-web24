@@ -7,16 +7,21 @@ class FriendsList extends React.Component {
   constructor() {
     super();
     this.state = {
-      friendsList: {}
+      friendsList: []
     };
+  };
+  
+  componentDidMount(){
+      this.getFriends();
   };
 
 getFriends(){
 axiosWithAuth()
 .get('/api/friends')
 .then(res => {
-    console.log(res.data);
-    //this.setState({res.data})
+    console.log("res.data", res.data);
+    this.setState({friendsList : res.data});
+    console.log('state.friendsList', this.state.friendsList);
 })
 .catch(err => {
     console.log(err);
@@ -32,6 +37,14 @@ logOut(){
     return (
       <>
         <AddFriendForm />
+        {this.state.friendsList.map(friend => { return(
+      <div>
+        <h4>{friend.name}</h4>
+        <h5>{friend.age}</h5>
+        <h5>{friend.email}</h5>
+      </div>
+        )})
+}
         <button onClick={this.logOut}>Log Out</button>
       </>
     );

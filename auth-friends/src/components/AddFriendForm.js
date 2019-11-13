@@ -28,6 +28,7 @@ const AddFriendForm = () => {
 
   return (
     <div className="add-friend form">
+      <h3>Add more friends!</h3>
       <form>
         <label>Name:</label>
         <input
